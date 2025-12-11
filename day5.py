@@ -13,6 +13,7 @@ for e, x in enumerate(ranges):
         fresh[int(start)] = int(end)
     else:
         fresh[int(start)] = v
+        
 # p1
 ans = set()
 for i in ing:
