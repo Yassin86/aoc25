@@ -13,11 +13,24 @@ for e, x in enumerate(ranges):
         fresh[int(start)] = int(end)
     else:
         fresh[int(start)] = v
-
+# p1
 ans = set()
 for i in ing:
     for k,v in fresh.items():
         if i >= k and i<=v:
             ans.add(i)
 
+# p2
+ranges_list = sorted(fresh.items())
+merged = []
+
+for start, end in ranges_list:
+    if merged and start <= merged[-1][1] + 1:
+        merged[-1] = (merged[-1][0], max(merged[-1][1], end))
+    else:
+        merged.append((start, end))
+
+p2 = sum(v - k + 1 for k, v in merged)
+
 print(len(ans))
+print(p2)
